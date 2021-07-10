@@ -20,18 +20,11 @@ namespace NetScrapper
             string startingUrl = Console.ReadLine();
             Console.Write("Depth: ");
             int maxDepth = int.Parse(Console.ReadLine());
-
-
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             GetAllLinks(startingUrl, 0, maxDepth, startingUrl);
-            stopWatch.Stop();
-            
             foreach (string link in linksList)
             {
                 Console.WriteLine(link);
             }
-            Console.WriteLine(stopWatch.Elapsed);
             Console.WriteLine("Links" + linksList.Count);
         }
         public static void  GetAllLinks(string link, int currentDepth, int maxDepth, string startingUrl)
